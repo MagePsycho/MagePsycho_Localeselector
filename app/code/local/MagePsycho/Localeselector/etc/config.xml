@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Localeselector
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <MagePsycho_Localeselector>
+            <version>0.2.0</version>
+        </MagePsycho_Localeselector>
+    </modules>
+    <global>
+        <models>
+            <localeselector>
+                <class>MagePsycho_Localeselector_Model</class>
+            </localeselector>
+        </models>
+        <blocks>
+            <localeselector>
+                <class>MagePsycho_Localeselector_Block</class>
+            </localeselector>
+        </blocks>
+        <helpers>
+            <localeselector>
+                <class>MagePsycho_Localeselector_Helper</class>
+            </localeselector>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <localeselector before="Mage_Adminhtml">MagePsycho_Localeselector</localeselector>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+		<!--<layout>
+			<updates>
+				<localeselector>
+					<file>localeselector.xml</file>
+				</localeselector>
+			</updates>
+		</layout>-->
+        <events>
+            <admin_session_user_login_success>
+                <observers>
+                    <localeselector_admin_session_user_login_success>
+                        <class>localeselector/observer</class>
+                        <method>setLocaleSetting</method>
+                    </localeselector_admin_session_user_login_success>
+                </observers>
+            </admin_session_user_login_success>
+        </events>
+        <acl>
+            <resources>
+                <all>
+					<title>Allow Everything</title>
+				</all>
+                <admin>
+                    <children>
+						<localeselector module="localeselector">
+							<title>Locale Selector Module</title>
+							<sort_order>10</sort_order>
+						</localeselector>
+
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <magepychoinfo>
+											<title>MagePsycho - All</title>
+										</magepychoinfo>
+                                        <localeselector>
+                                            <title>MagePsycho Area</title>
+                                        </localeselector>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <localeselector>
+            <option>
+                <active>1</active>
+				<lallowspecific>0</lallowspecific>
+            </option>
+        </localeselector>
+    </default>
+</config>
