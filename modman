@@ -1,5 +1,5 @@
 #MagePsycho_Localeselector V0.2.0
 
 app/etc/modules/MagePsycho_Localeselector.xml  app/etc/modules/MagePsycho_Localeselector.xml
-app/code/local/MagePsycho/Localeselector/  app/code/local/MagePsycho/Localeselector/
+app/code/community/MagePsycho/Localeselector/  app/code/community/MagePsycho/Localeselector/
 app/design/adminhtml/default/default/template/localeselector/    app/design/adminhtml/default/default/template/localeselector/
